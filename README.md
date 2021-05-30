@@ -8,20 +8,23 @@ Descarga [Ruby on Rails](https://rails.github.io/download/ "Ruby on Rails") (Deb
 
 Una vez instalados debes de instalar via consola los siguientes paquetes:
 
-> gem install bundler
-	gem install rack
-	gem install neo4j
-	gem install rake
+ `gem install bundler`
+
+ `gem install rack`
+
+`gem install neo4j`
+
+`gem install rake`
 
 ------------
 
 Una vez instalados debes de clonar el proyecto y dirigirte hacia la carpeta raíz de la misma, en ella debes correr el comando:
 
-> bundle install
-> yarn install
+ `bundle install`
+ `yarn install`
 
 Luego de esto, correr el siguiente comando para hacer las migraciones (eliminar el archivo schema.yml está ubicado en la carpeta db/neo4j)
 
-> rake neo4j:migrate
+`rake neo4j:migrate`
 
 En cualquier caso que no funcione notificarme.
