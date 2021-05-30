@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @mangaka.name %>
+</p>
+
+<p>
+  <strong>Image:</strong>
+  <%= @mangaka.image %>
+</p>
+
+<%= link_to 'Edit', edit_mangaka_path(@mangaka) %> |
+<%= link_to 'Back', mangakas_path %>
