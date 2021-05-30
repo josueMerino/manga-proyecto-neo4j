@@ -2,12 +2,12 @@
 
 <h1>Mangakas</h1>
 
-<table>
+<table border="1">
   <thead>
     <tr>
       <th>Name</th>
       <th>Image</th>
-      <th colspan="3"></th>
+      <th colspan="3">Operations</th>
     </tr>
   </thead>
 
@@ -17,9 +17,9 @@
         <td><%= mangaka.name %></td>
         
         <% if mangaka.image %>
-          <td><img src="<%mangaka.image%>" alt="A"/></td>
+          <td><img src="<%=mangaka.image%>" alt="A" width="100" height="100"/></td>
           <% else %>
-          <td><img src="https://images.unsplash.com/photo-1580656449548-a2278870021d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=709&q=80" alt="Imagen" /></td>
+          <td><img src="https://images.unsplash.com/photo-1580656449548-a2278870021d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=709&q=80" alt="Imagen"  width="100" height="100"/></td>
         <% end %>
         <td><%= link_to 'Show', mangaka %></td>
         <td><%= link_to 'Edit', edit_mangaka_path(mangaka) %></td>
@@ -31,4 +31,5 @@
 
 <br>
 
-<%= link_to 'New Mangaka', new_mangaka_path %>
+<%= link_to 'New Mangaka', new_mangaka_path %> |
+<%= link_to 'Menu', root_path %>

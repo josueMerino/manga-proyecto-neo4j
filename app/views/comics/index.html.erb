@@ -2,7 +2,7 @@
 
 <h1>Comics</h1>
 
-<table>
+<table border="1">
   <thead>
     <tr>
       <th>Name</th>
@@ -10,7 +10,7 @@
       <th>Sinopsis</th>
       <th>Generos</th>
       <th>Is active</th>
-      <th colspan="3"></th>
+      <th colspan="3">Operations</th>
     </tr>
   </thead>
 
@@ -19,13 +19,29 @@
       <tr>
         <td><%= comic.name %></td>
         <% if comic.image %>
-          <td><img src="<%comic.image%>" alt="A"/></td>
+          <td><img src="<%=comic.image%>" alt="A" width="100" height="100"/></td>
           <% else %>
-          <td><img src="https://images.unsplash.com/photo-1580656449548-a2278870021d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=709&q=80" alt="Imagen" /></td>
+          <td><img src="https://images.unsplash.com/photo-1580656449548-a2278870021d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=709&q=80" alt="Imagen"  width="100" height="100"/></td>
         <% end %>
         <td><%= comic.sinopsis %></td>
         <td><%= comic.generos %></td>
-        <td><%= comic.is_active %></td>
+        <td>
+        <% if comic.is_active == 0 %>
+          Completo
+        <% end %>
+
+        <% if comic.is_active == 1 %>
+          En emisión
+        <% end %>
+
+        <% if comic.is_active == 2 %>
+          Pausado
+        <% end %>
+
+        <% if comic.is_active == 3 %>
+          Abandonado
+        <% end %>
+        </td>
         <td><%= link_to 'Show', comic %></td>
         <td><%= link_to 'Edit', edit_comic_path(comic) %></td>
         <td><%= link_to 'Destroy', comic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -36,4 +52,5 @@
 
 <br>
 
-<%= link_to 'New Comic', new_comic_path %>
+<%= link_to 'New Comic', new_comic_path %> |
+<%= link_to 'Menu', root_path %>

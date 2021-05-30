@@ -1,7 +1,9 @@
-// Comics 0: Completo 1: En emisión 2: Pausado 3: Abandonado
-
-// Mangakas
-CREATE (:Mangaka{neo_id: 1, name: "Makoto Yukimura", image:"https://otakuteca.com/images/people/5ff89f9437bda.jpg"})
+class MainController < ApplicationController
+  def index
+  end
+  
+  def upload
+    ActiveGraph::Base.query('CREATE (:Mangaka{neo_id: 1, name: "Makoto Yukimura", image:"https://otakuteca.com/images/people/5ff89f9437bda.jpg"})
         -[:CREATED_IN]->
         (:Comic{
                 neo_id: 1,
@@ -75,7 +77,7 @@ CREATE (:Mangaka{neo_id: 7,name: "Hirohiko Araki", image:"https://otakuteca.com/
                 generos: "Acción,  Aventura,  Supernatural,  Tragedia,  Historia,  Vampiros,  Superpoderes",
                 sinopsis:"Todo comienza en el seno de la familia Joestar, una acaudalada familia noble inglesa que recibe como nuevo miembro a Dio Brando, un chico de los bajos fondos de Londres. El hijo adoptivo de los Joestar intentará por todos los medios destruir la moral de su hermano Jonathan, el legítimo heredero, para quedarse con su herencia y vivir rodeado de lujos. No obstante, sus vidas darán un vuelco por el poder de la máscara de piedra y ambos se verán sumidos en una lucha entre vampiros sedientos de sangre y protectores de la humanidad.", 
                 image: "https://otakuteca.com/images/books/cover/5b8cf2af5b186.jpg",
-                name:"Jojo's Bizarre Adventure"})
+                name:"Jojo\'s Bizarre Adventure"})
         -[:PUBLISHED_IN {publish_date: date("1986-09-02")}]->
         (:Magazine{neo_id: 7,name:"Weekly Shōnen Jump"})
 
@@ -164,7 +166,14 @@ CREATE (:Mangaka{neo_id: 14,name: "Akihito Tukushi", image:"https://otakuteca.co
                 image: "https://otakuteca.com/images/books/cover/5d19c22310e6a.jpg",
                 name:"Made in Abyss"})
         -[:PUBLISHED_IN {publish_date: date("2012-10-01")}]->
-        (:Magazine{neo_id: 15,name:"Web Comic Gamma"})
-// Magazines
+        (:Magazine{neo_id: 15,name:"Web Comic Gamma"})')
+         redirect_to root_url 
+  end
 
-// Conexiones
+  def deleteAll
+    ActiveGraph::Base.query('MATCH (n:Magazine) DETACH DELETE n')
+    ActiveGraph::Base.query('MATCH (n:Mangaka) DETACH DELETE n')
+    ActiveGraph::Base.query('MATCH (n:Comic) DETACH DELETE n')
+     redirect_to root_url
+  end
+end

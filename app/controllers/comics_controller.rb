@@ -8,6 +8,7 @@ class ComicsController < ApplicationController
 
   # GET /comics/1 or /comics/1.json
   def show
+    @comic = Comic.find(params[:id])
   end
 
   # GET /comics/new
@@ -17,6 +18,7 @@ class ComicsController < ApplicationController
 
   # GET /comics/1/edit
   def edit
+    @comic = Comic.find(params[:id])
   end
 
   # POST /comics or /comics.json
@@ -49,6 +51,7 @@ class ComicsController < ApplicationController
 
   # DELETE /comics/1 or /comics/1.json
   def destroy
+    @comic = Comic.find(params[:id])
     @comic.destroy
     respond_to do |format|
       format.html { redirect_to comics_url, notice: "Comic was successfully destroyed." }

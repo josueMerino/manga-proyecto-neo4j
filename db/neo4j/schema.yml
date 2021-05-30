@@ -14,9 +14,12 @@
 :constraints:
 - CONSTRAINT ON ( `activegraph::migrations::schemamigration`:`ActiveGraph::Migrations::SchemaMigration`
   ) ASSERT (`activegraph::migrations::schemamigration`.migration_id) IS UNIQUE
+- CONSTRAINT ON ( comic:Comic ) ASSERT (comic.neo_id) IS UNIQUE
 - CONSTRAINT ON ( comic:Comic ) ASSERT (comic.uuid) IS UNIQUE
 - CONSTRAINT ON ( created_in:CREATED_IN ) ASSERT (created_in.uuid) IS UNIQUE
+- CONSTRAINT ON ( magazine:Magazine ) ASSERT (magazine.neo_id) IS UNIQUE
 - CONSTRAINT ON ( magazine:Magazine ) ASSERT (magazine.uuid) IS UNIQUE
+- CONSTRAINT ON ( mangaka:Mangaka ) ASSERT (mangaka.neo_id) IS UNIQUE
 - CONSTRAINT ON ( mangaka:Mangaka ) ASSERT (mangaka.uuid) IS UNIQUE
 - CONSTRAINT ON ( published_in:PUBLISHED_IN ) ASSERT (published_in.uuid) IS UNIQUE
 :indexes: []
@@ -26,3 +29,6 @@
 - '20210530082156'
 - '20210530180522'
 - '20210530180857'
+- '20210530190848'
+- '20210530190900'
+- '20210530190922'

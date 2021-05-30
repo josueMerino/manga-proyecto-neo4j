@@ -7,7 +7,11 @@
 
 <p>
   <strong>Image:</strong>
-  <%= @comic.image %>
+  <% if @comic.image != nil %>
+      <img src="<%=@comic.image%>" alt="A"/>
+    <% else %>
+      <img src="https://images.unsplash.com/photo-1580656449548-a2278870021d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=709&q=80" alt="Imagen" />
+  <% end %>
 </p>
 
 <p>
@@ -21,8 +25,22 @@
 </p>
 
 <p>
-  <strong>Is active:</strong>
-  <%= @comic.is_active %>
+  <strong>Estado</strong>
+  <% if @comic.is_active == 0 %>
+          Completo
+        <% end %>
+        
+        <% if @comic.is_active == 1 %>
+          En emisión
+        <% end %>
+        
+        <% if @comic.is_active == 2 %>
+          Pausado
+        <% end %>
+
+        <% if @comic.is_active == 3 %>
+          Abandonado
+        <% end %>
 </p>
 
 <%= link_to 'Edit', edit_comic_path(@comic) %> |

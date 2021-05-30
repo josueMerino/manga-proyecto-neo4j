@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  # root "/"
+  root "main#index"
+  get "/delete", to: "main#deleteAll", as: 'deleteData'
+  get "/upload", to: "main#upload", as: 'uploadData'
   resources :comics
   resources :magazines
   resources :mangakas
