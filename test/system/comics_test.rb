@@ -18,7 +18,6 @@ class ComicsTest < ApplicationSystemTestCase
     fill_in "Image", with: @comic.image
     fill_in "Is active", with: @comic.is_active
     fill_in "Name", with: @comic.name
-    fill_in "Publish date", with: @comic.publish_date
     fill_in "Sinopsis", with: @comic.sinopsis
     click_on "Create Comic"
 
@@ -34,7 +33,6 @@ class ComicsTest < ApplicationSystemTestCase
     fill_in "Image", with: @comic.image
     fill_in "Is active", with: @comic.is_active
     fill_in "Name", with: @comic.name
-    fill_in "Publish date", with: @comic.publish_date
     fill_in "Sinopsis", with: @comic.sinopsis
     click_on "Update Comic"
 

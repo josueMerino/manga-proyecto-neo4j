@@ -17,7 +17,7 @@ class ComicsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create comic" do
     assert_difference('Comic.count') do
-      post comics_url, params: { comic: { generos: @comic.generos, image: @comic.image, is_active: @comic.is_active, name: @comic.name, publish_date: @comic.publish_date, sinopsis: @comic.sinopsis } }
+      post comics_url, params: { comic: { generos: @comic.generos, image: @comic.image, is_active: @comic.is_active, name: @comic.name, sinopsis: @comic.sinopsis } }
     end
 
     assert_redirected_to comic_url(Comic.last)
@@ -34,7 +34,7 @@ class ComicsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update comic" do
-    patch comic_url(@comic), params: { comic: { generos: @comic.generos, image: @comic.image, is_active: @comic.is_active, name: @comic.name, publish_date: @comic.publish_date, sinopsis: @comic.sinopsis } }
+    patch comic_url(@comic), params: { comic: { generos: @comic.generos, image: @comic.image, is_active: @comic.is_active, name: @comic.name, sinopsis: @comic.sinopsis } }
     assert_redirected_to comic_url(@comic)
   end
 

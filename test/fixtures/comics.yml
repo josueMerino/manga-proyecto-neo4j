@@ -6,7 +6,6 @@ one:
   sinopsis: MyString
   generos: MyString
   is_active: 1
-  publish_date: 2021-05-30
 
 two:
   name: MyString
@@ -14,4 +13,3 @@ two:
   sinopsis: MyString
   generos: MyString
   is_active: 1
-  publish_date: 2021-05-30

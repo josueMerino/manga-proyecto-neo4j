@@ -10,7 +10,6 @@
       <th>Sinopsis</th>
       <th>Generos</th>
       <th>Is active</th>
-      <th>Publish date</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -19,11 +18,14 @@
     <% @comics.each do |comic| %>
       <tr>
         <td><%= comic.name %></td>
-        <td><%= comic.image %></td>
+        <% if comic.image %>
+          <td><img src="<%comic.image%>" alt="A"/></td>
+          <% else %>
+          <td><img src="https://images.unsplash.com/photo-1580656449548-a2278870021d?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=709&q=80" alt="Imagen" /></td>
+        <% end %>
         <td><%= comic.sinopsis %></td>
         <td><%= comic.generos %></td>
         <td><%= comic.is_active %></td>
-        <td><%= comic.publish_date %></td>
         <td><%= link_to 'Show', comic %></td>
         <td><%= link_to 'Edit', edit_comic_path(comic) %></td>
         <td><%= link_to 'Destroy', comic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
