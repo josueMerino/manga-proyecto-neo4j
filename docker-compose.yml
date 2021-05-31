@@ -1,0 +1,26 @@
+version: "2"
+services:
+  neo4j:
+    build: ./db/neo4j
+    environment:
+      - NEO4J_AUTH=yes
+      - NEO4J_USER=neo4j
+      - NEO4J_PASSWORD=password
+    ports:
+      - 7474:7474
+      - 7473:7473
+      - 7687:7687
+    volumes:
+      - .:/data
+      - .:/logs
+  app:
+    build: .
+    environment:
+      - RAILS_ENV=development
+    command: rails server --port 3000 --binding 0.0.0.0
+    ports:
+      - "3000:3000"
+    depends_on:
+      - neo4j
+    volumes:
+      - .:/manga
