@@ -8,6 +8,7 @@ class MagazinesController < ApplicationController
 
   # GET /magazines/1 or /magazines/1.json
   def show
+    @magazine = Magazine.find(params[:id])
   end
 
   # GET /magazines/new
@@ -17,6 +18,7 @@ class MagazinesController < ApplicationController
 
   # GET /magazines/1/edit
   def edit
+    @magazine = Magazine.find(params[:id])
   end
 
   # POST /magazines or /magazines.json

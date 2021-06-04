@@ -1,18 +1,16 @@
-version: "2"
+version: "3.5"
 services:
   neo4j:
     build: ./db/neo4j
     environment:
-      - NEO4J_AUTH=yes
-      - NEO4J_USER=neo4j
-      - NEO4J_PASSWORD=password
+      - NEO4J_AUTH=none
     ports:
       - 7474:7474
       - 7473:7473
       - 7687:7687
     volumes:
-      - .:/data
-      - .:/logs
+      - ./db/docker_data:/data
+      - ./log:/logs
   app:
     build: .
     environment:

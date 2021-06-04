@@ -8,6 +8,7 @@ class MangakasController < ApplicationController
 
   # GET /mangakas/1 or /mangakas/1.json
   def show
+    @mangaka = Mangaka.find(params[:id])
   end
 
   # GET /mangakas/new
@@ -17,6 +18,7 @@ class MangakasController < ApplicationController
 
   # GET /mangakas/1/edit
   def edit
+    @mangaka = Mangaka.find(params[:id])
   end
 
   # POST /mangakas or /mangakas.json

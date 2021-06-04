@@ -1,8 +1,20 @@
 FROM ruby:2.7.3
-RUN apt-get update -qq && apt-get install -y build-essential nodejs
+
+RUN apt-get update -qq && apt-get install -y build-essential nodejs 
+RUN wget https://github.com/neo4j-drivers/seabolt/releases/download/v1.7.4/seabolt-1.7.4-Linux-ubuntu-18.04.deb
+RUN dpkg -i seabolt-1.7.4-Linux-ubuntu-18.04.deb
+RUN rm seabolt-1.7.4-Linux-ubuntu-18.04.deb
+RUN apt-get install -y git cmake libssl-dev
 RUN mkdir /manga
+
+
 WORKDIR /manga
-ADD Gemfile /manga/Gemfile
-ADD Gemfile.lock /manga/Gemfile.lock
+
+COPY Gemfile /manga/Gemfile
+COPY Gemfile.lock /manga/Gemfile.lock
+
 RUN bundle install
+
 ADD . /manga
+
+# RUN rake neo4j:migrate

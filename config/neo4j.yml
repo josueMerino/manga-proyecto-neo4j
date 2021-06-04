@@ -1,3 +1,5 @@
 development:
   type: server_db
   url: bolt://neo4j:password@localhost:7687
+  #url para Docker
+  # url: bolt://neo4j:7687
