@@ -1,24 +1,30 @@
-# README
+# Manga Neo4j Ruby
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Para comenzar necesitas tener instalado Ruby y Ruby on Rails.
 
-Things you may want to cover:
+Descarga [Ruby](https://www.ruby-lang.org/en/downloads/ "Ruby") (Debes instalar la versión 2.7)
 
-* Ruby version
+Descarga [Ruby on Rails](https://rails.github.io/download/ "Ruby on Rails") (Debes tener Ruby instalado primero)
 
-* System dependencies
+Una vez instalados debes de instalar via consola los siguientes paquetes:
 
-* Configuration
+ `gem install bundler`
 
-* Database creation
+ `gem install rack`
 
-* Database initialization
+`gem install neo4j`
 
-* How to run the test suite
+`gem install rake`
 
-* Services (job queues, cache servers, search engines, etc.)
+------------
 
-* Deployment instructions
+Una vez instalados debes de clonar el proyecto y dirigirte hacia la carpeta raíz de la misma, en ella debes correr el comando:
 
-* ...
+ `bundle install`
+ `yarn install`
+
+Luego de esto, correr el siguiente comando para hacer las migraciones (eliminar el archivo schema.yml está ubicado en la carpeta db/neo4j)
+
+`rake neo4j:migrate`
+
+En cualquier caso que no funcione notificarme.
