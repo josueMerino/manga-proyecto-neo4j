@@ -18,4 +18,4 @@ COPY ["Gemfile.lock", "/manga/Gemfile.lock"]
 
 RUN bundle install
 
-COPY . /manga
+COPY [".", "/manga"]
