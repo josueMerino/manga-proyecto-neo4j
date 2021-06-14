@@ -1,7 +1,7 @@
 version: "3.5"
 services:
   neo4j:
-    image: neo4j:3.5
+    image: neo4j:4.0
     environment:
       - NEO4J_AUTH=none
     ports:
@@ -17,6 +17,7 @@ services:
     build: .
     environment:
       - RAILS_ENV=development
+    container_name: manga_app
     command: rails server --port 3000 --binding 0.0.0.0
     ports:
       - "3000:3000"

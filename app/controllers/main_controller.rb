@@ -3,7 +3,14 @@ class MainController < ApplicationController
   end
   
   def upload
-    ActiveGraph::Base.query('CREATE (:Mangaka{neo_id: 1, name: "Makoto Yukimura", image:"https://otakuteca.com/images/people/5ff89f9437bda.jpg"})
+        ActiveGraph::Base.query('
+                CREATE 
+                (:Mangaka{
+                                neo_id: 1, 
+                                name: "Makoto Yukimura", 
+                                image:"https://otakuteca.com/images/people/5ff89f9437bda.jpg"
+                        }
+                )
         -[:CREATED_IN]->
         (:Comic{
                 neo_id: 1,
