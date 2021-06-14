@@ -19,5 +19,3 @@ COPY Gemfile.lock /manga/Gemfile.lock
 RUN bundle install
 
 COPY . /manga
-
-RUN rake webpacker:install
