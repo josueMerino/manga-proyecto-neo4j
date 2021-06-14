@@ -13,11 +13,9 @@ RUN mkdir /manga
 
 WORKDIR /manga
 
-COPY Gemfile /manga/Gemfile
-COPY Gemfile.lock /manga/Gemfile.lock
+COPY ["Gemfile", "/manga/Gemfile"]
+COPY ["Gemfile.lock", "/manga/Gemfile.lock"]
 
 RUN bundle install
 
 COPY . /manga
-
-RUN rake webpacker:install
